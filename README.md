@@ -1,0 +1,1 @@
+[https://mathphilia.github.io/jankyard/](https://mathphilia.github.io/jankyard/)

@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+#container {
+    margin: 1em 0;
+}
+
+button, textarea {
+    font-family: Consolas;
+}
+
+div:not(#container) {
+    height: 10em;
+    width: 70%;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+}

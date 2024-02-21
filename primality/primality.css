@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+body {
+    overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 0.75rem;
+    }
+}
+
+input {
+    width: 70%;
+}
+
+small {
+    font-size: 0.5rem;
+}
+
+p {
+    margin-bottom: 4em;
+}

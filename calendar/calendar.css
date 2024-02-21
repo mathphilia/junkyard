@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+button {
+    flex: 1;
+    margin: 0 0.2em;
+}
+
+button:first-child {
+    margin-left: 0;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+center#month {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+div.calendar {
+    margin: 1em;
+    width: 18.2em;
+}
+
+div.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0.5em 0;
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+    height: 1.6em;
+}
+
+th {
+    width: 2.6em;
+}
+
+tr .other-month {
+    color: gray;
+}
+
+tr :nth-child(1) {
+    color: red;
+}
+
+tr :nth-child(1).other-month {
+    color: #F99;
+}
+
+tr :nth-child(7) {
+    color: blue;
+}
+
+tr :nth-child(7).other-month {
+    color: #99F;
+}

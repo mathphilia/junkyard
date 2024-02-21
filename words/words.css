@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+body {
+    margin: 1em;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 0.75rem;
+    }
+}
+
+a, a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: red;
+}
+
+.code {
+    font-family: Consolas, monospace;
+}
+
+button {
+    background: #EEE;
+    border: 1px solid black;
+    border-radius: 1em;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.2);
+    padding: 0.3em 1em;
+}
+
+button:hover {
+    background: #DDD;
+}
+
+button:active {
+    box-shadow: none;
+    transform: translate(1.5px, 1.5px);
+}
+
+button {
+    cursor: pointer;
+}
+
+p#result {
+    margin-bottom: 4em;
+}

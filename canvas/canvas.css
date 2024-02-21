@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+canvas {
+    border: 1px solid orange;
+    margin: 1em 0;
+}
+
+button, textarea {
+    font-family: Consolas;
+}
+
+div:not(#container) {
+    height: 10em;
+    padding-bottom: 6em;
+    width: 70%;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+}
