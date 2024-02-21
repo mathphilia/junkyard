@@ -1,1 +1,1 @@
-[https://mathphilia.github.io/jankyard/](https://mathphilia.github.io/jankyard/)
+[https://mathphilia.github.io/junkyard/](https://mathphilia.github.io/junkyard/)
