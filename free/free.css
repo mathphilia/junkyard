@@ -8,8 +8,8 @@ button, textarea {
     font-family: Consolas;
 }
 
-div:not(#container) {
-    height: 10em;
+body > div:not(#container) {
+    min-height: 10em;
     width: 70%;
 }
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>数独</title>
+        <meta charset="utf-8" />
+        <meta name="author" content="mathphilia" />
+        <meta name="theme-color" content="#5D5" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:description" content="数独を解いたり生成したり画像化したり。" />
+        <meta property="og:image" content="" />
+        <meta property="og:site_name" content="ガラクタ置き場" />
+        <meta property="og:title" content="数独" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://mathphilia.github.io/jankyard/sudoku/" />
+        <script src="solver.js"></script>
+        <script src="sudoku.js"></script>
+        <link rel="stylesheet" href="../common.css" />
+        <link rel="stylesheet" href="sudoku.css" />
+        <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+    </head>
+    <body>
+        <h1>数独</h1>
+        <paragraph>数独を解いたり生成したり画像化したり。</paragraph>
+        <paragraph>サイズは2⁴と3⁴に対応しています。元々は5⁴までにする予定でしたが、解くのに時間がかかりすぎるので3⁴までになりました(3⁴でも最大で数秒程度かかる)。なお、解の一意性に関しては確率的に判定しているので間違えることがあります。悪しからず。</paragraph>
+        <div id="sudoku"></div>
+        <div>
+            <button id="solve-btn">solve</button>
+            <button id="undo-btn" disabled>undo</button>
+            <button id="reset-btn">reset</button>
+            <button id="random-btn">random</button>
+            <button id="copy-image">copy image</button>
+        </div>
+        <div>
+            size:
+            <label><input type="radio" name="sudoku-size" value="2">2⁴</label>
+            <label><input type="radio" name="sudoku-size" value="3">3⁴</label>
+        </div>
+        <div>
+            <input id="JSON-input" size="20">
+            <button id="to-JSON">to JSON</button>
+            <button id="to-board">to board</button>
+        </div>
+        <style id="sudoku-style"></style>
+        <a class="top" href="../">back to top</a>
+    </body>
+</html>

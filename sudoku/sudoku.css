@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+* {
+    font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;
+}
+
+button:disabled {
+    background-color: #DDD;
+}
+
+div#sudoku {
+    background-color: black;
+    border: 2px black solid;
+    display: grid;
+    height: min(50vh, 90vw);
+    width: min(50vh, 90vw);
+}
+
+div#sudoku div.sudoku-block {
+    background-color; red;
+    border: 1px black solid;
+    display: grid;
+}
+
+div#sudoku input {
+    border: 1px black solid;
+    text-align: center;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+input:disabled {
+    background-color: white;
+    color: black;
+}
+
+paragraph {
+    display: block;
+    margin: 0.5em 0 0;
+    text-indent: 1em;
+}
