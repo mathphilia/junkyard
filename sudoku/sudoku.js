@@ -77,7 +77,7 @@ onload = function() {
                 alert(err.message);
             }
             this.disabled = false;
-        }, 1);
+        }, 10);
     };
 
     undoBtn.onclick = function() {
@@ -121,7 +121,7 @@ onload = function() {
             writeSudoku(generateProblem(size).problem);
             this.disabled = false;
             this.innerText = 'random';
-        }, 1);
+        }, 10);
     };
 
     copyBtn.onclick = function() {
