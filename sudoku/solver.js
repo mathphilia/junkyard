@@ -20,21 +20,21 @@ function solve(sudoku, size) {
         throw new Error('too many kinds of numbers');
     } else if(used.length < size ** 2 - 1) {
         throw new Error('too few kinds of numbers');
-    }else if(used.length == size ** 2 - 1){
-        for(let i = 1; i <= 10; i++){
-            if(!used.includes(i) && !used.includes(i.toString())){
+    } else if(used.length == size ** 2 - 1) {
+        for(let i = 1; i <= 10; i++) {
+            if(!used.includes(i) && !used.includes(i.toString())) {
                 used.push((i % 10).toString());
                 break;
             }
         }
     }
-    let err = findInconsistency(sudoku, size)
+    let err = findInconsistency(sudoku, size);
     if(err) {
         throw new Error(`inconsistent input; (${err[0]},${err[1]})-element, ${err[2]}`);
     }
     let unavailable = getUnavailableNumbers(sudoku, size);
     let solution = findOneSolution(sudoku, size, used);
-    if(solution == null){
+    if(solution == null) {
         throw new Error('no solutions exist');
     }
     for(let i = 0; i < 4; i++) {
@@ -56,9 +56,9 @@ function findInconsistency(sudoku, size) {
                 let yBlock = Math.floor(j / size) * size + (k % size);
                 if(j != k && sudoku[i][j] == sudoku[i][k]) {
                     return [i, j, 'row'];
-                }else if(i != k && sudoku[i][j] == sudoku[k][j]){
+                } else if(i != k && sudoku[i][j] == sudoku[k][j]) {
                     return [i, j, 'column'];
-                }else if(!(i == xBlock && j == yBlock) && sudoku[i][j] == sudoku[xBlock][yBlock]){
+                } else if(!(i == xBlock && j == yBlock) && sudoku[i][j] == sudoku[xBlock][yBlock]) {
                     return [i, j, 'block'];
                 }
             }
@@ -116,7 +116,7 @@ function findOneSolution(sudoku, size, used) {
     }
     if(maximumUnavailable == size ** 2) {
         return null;
-    }else if(iNext === undefined) {
+    } else if(iNext === undefined) {
         return sudoku;
     }
     let available = used.filter(x => !unavailable[iNext][jNext].has(x));
@@ -138,8 +138,8 @@ function generateProblem(size) {
     answer = findOneSolution(answer, size, used);
     let arr = answer.map(row => Array.from(row));
     let coordinates = [];
-    for(let i = 0; i < size ** 2; i++){
-        for(let j = 0; j < size ** 2; j++){
+    for(let i = 0; i < size ** 2; i++) {
+        for(let j = 0; j < size ** 2; j++) {
             if(Math.random() < 1 / 2) {
                 arr[i][j] = '';
             } else {
@@ -171,11 +171,11 @@ function generateProblem(size) {
             arr[x][y] = answer[x][y];
             coordinates.push([x, y]);
             count++;
-        }else{
+        } else {
             coordinates.sort(() => Math.random() * 2 - 1);
             count = 0;
         }
-        if(coordinates.length == count){
+        if(coordinates.length == count) {
             break;
         }
     }

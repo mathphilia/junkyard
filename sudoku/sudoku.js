@@ -31,9 +31,9 @@ onload = function() {
 
     function readSudoku() {
         result = [];
-        for(let i = 0; i < size ** 2; i++){
+        for(let i = 0; i < size ** 2; i++) {
             result.push([]);
-            for(let j = 0; j < size ** 2; j++){
+            for(let j = 0; j < size ** 2; j++) {
                 let cell = inputArray[i * size ** 2 + j].value.trim();
                 result[i].push(cell);
             }
@@ -46,12 +46,12 @@ onload = function() {
         if(arr.length != arrSize ** 2) {
             throw new Error('improper input');
         }
-        for(let i = 0; i < arrSize ** 2; i++){
+        for(let i = 0; i < arrSize ** 2; i++) {
             if(arr[i].length != arrSize ** 2) {
                 throw new Error('improper input');
             }
         }
-        if(!(2 <= arrSize <= 3)) {
+        if(arrSize < 2 || 3 < arrSize) {
             throw new Error('improper size (size must be 2⁴ or 3⁴)');
         }
         if(size != arrSize) {
@@ -59,8 +59,8 @@ onload = function() {
             size = arrSize;
             resetBtn.onclick();
         }
-        for(let i = 0; i < arrSize ** 2; i++){
-            for(let j = 0; j < arrSize ** 2; j++){
+        for(let i = 0; i < arrSize ** 2; i++) {
+            for(let j = 0; j < arrSize ** 2; j++) {
                 inputArray[i * arrSize ** 2 + j].value = arr[i][j];
             }
         }
@@ -71,9 +71,9 @@ onload = function() {
         this.disabled = true;
         setTimeout(() => {
             let problem = readSudoku();
-            try{
+            try {
                 writeSudoku(solve(problem, size));
-            }catch(err){
+            } catch (err) {
                 alert(err.message);
             }
             this.disabled = false;
@@ -92,11 +92,11 @@ onload = function() {
         sudoku.innerHTML = '';
         let inputElem;
         inputArray = Array(size ** 4);
-        for(let i = 0; i < size ** 2; i++){
+        for(let i = 0; i < size ** 2; i++) {
             let sudokuBlock = document.createElement('div');
             sudokuBlock.className = 'sudoku-block';
             sudoku.appendChild(sudokuBlock);
-            for(let j = 0; j < size ** 2; j++){
+            for(let j = 0; j < size ** 2; j++) {
                 inputElem = document.createElement('input');
                 sudokuBlock.append(inputElem);
                 inputElem.maxLength = (size ** 2).toString().length;
@@ -110,7 +110,7 @@ onload = function() {
         }
         sudokuStyle.innerHTML = `div#sudoku {\n    grid-template-columns: repeat(${size}, calc(99%/${size}));\n    grid-template-rows: repeat(${size}, calc(99%/${size}));\n    column-gap: ${1 / (size - 1)}%;\n    row-gap: ${1 / (size - 1)}%;\n}\n\ndiv#sudoku div.sudoku-block {\n    grid-template-columns: repeat(${size}, calc(100%/${size}));\n    grid-template-rows: repeat(${size}, calc(100%/${size}));\n}`;
         let fontSize = getComputedStyle(inputElem).height;
-        fontSize = Number(fontSize.slice(0,-2)) * 4 / 5 + 'px';
+        fontSize = Number(fontSize.slice(0, -2)) * 4 / 5 + 'px';
         sudokuStyle.innerHTML += `\n\ndiv#sudoku input {\n    font-size: ${fontSize};\n}`;
     };
 
@@ -122,7 +122,7 @@ onload = function() {
             this.disabled = false;
             this.innerText = 'random';
         }, 1);
-    }
+    };
 
     copyBtn.onclick = function() {
         copyContext.fillStyle = 'white';
@@ -133,7 +133,7 @@ onload = function() {
         for(let i = 1; i < size ** 2; i++) {
             if(i % size == 0) {
                 copyContext.lineWidth = 10;
-            }else{
+            } else {
                 copyContext.lineWidth = 3;
             }
             copyContext.beginPath();
@@ -153,14 +153,16 @@ onload = function() {
             }
         }
         copyCanvas.toBlob(blob => {
-            let data = {[blob.type]: blob};
+            let data = {
+                [blob.type]: blob
+            };
             navigator.clipboard.write([new ClipboardItem(data)]);
         });
         this.innerText = 'copied!';
         setTimeout(() => {
             this.innerText = 'copy image';
         }, 1000);
-    }
+    };
 
     for(let btn of document.getElementsByName('sudoku-size')) {
         btn.onchange = function() {
@@ -209,7 +211,7 @@ onload = function() {
                 break;
         }
         inputArray[row * size ** 2 + col].focus();
-    }
+    };
 
     onkeyup = function() {
         if(event.code == 'Enter' && !solveBtn.disabled) {
