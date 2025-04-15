@@ -8,12 +8,7 @@ button, textarea {
     font-family: Consolas;
 }
 
-div:not(#container) {
+textarea {
     height: 10em;
     width: 70%;
-}
-
-textarea {
-    height: 100%;
-    width: 100%;
 }
